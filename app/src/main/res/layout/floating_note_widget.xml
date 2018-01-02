@@ -39,7 +39,7 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
+<!--    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/expanded_view"
@@ -66,6 +66,6 @@
                 android:text="Close"
                 android:id="@+id/expand_collapse"/>
         </LinearLayout>
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 </FrameLayout>

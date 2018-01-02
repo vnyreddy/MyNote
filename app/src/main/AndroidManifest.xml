@@ -24,7 +24,7 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".Activities.NoteWidgetActivity"
+        <activity android:name=".Activities.NoteOverlayActivity"
             android:theme="@style/Theme.Transparent"></activity>
     </application>
 

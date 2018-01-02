@@ -14,10 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.vinay.wizdem.mynote.Activities.NoteWidgetActivity;
+import com.vinay.wizdem.mynote.Activities.NoteOverlayActivity;
 import com.vinay.wizdem.mynote.R;
-
-import static com.vinay.wizdem.mynote.R.id.expanded_view;
 
 public class FloatingNoteService extends Service {
 
@@ -82,13 +80,13 @@ public class FloatingNoteService extends Service {
             //setting close button expand to collapse
             Button expand_collapse = (Button)mFloatingView.findViewById(R.id.expand_collapse);
 
-            expand_collapse.setOnClickListener(new View.OnClickListener() {
+           /* expand_collapse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     collapsed_view.setVisibility(View.VISIBLE);
-                    expanded_view.setVisibility(View.GONE);
+                 //   expanded_view.setVisibility(View.GONE);
                 }
-            });
+            });*/
 
             //Drag & move floating view on touch
             mFloatingView.findViewById(R.id.root_container).setOnTouchListener(new View.OnTouchListener() {
@@ -122,11 +120,11 @@ public class FloatingNoteService extends Service {
                                     //When user clicks on the image view of the collapsed layout,
                                     //visibility of the collapsed layout will be changed to "View.GONE"
                                     //and expanded view will become visible.
-                                    collapsed_view.setVisibility(View.GONE);
-                                    expanded_view.setVisibility(View.VISIBLE);
-                                    /*Intent intent = new Intent(FloatingNoteService.this, NoteWidgetActivity.class);
+                                    /*collapsed_view.setVisibility(View.GONE);
+                                    expanded_view.setVisibility(View.VISIBLE);*/
+                                    Intent intent = new Intent(FloatingNoteService.this, NoteOverlayActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);*/
+                                    startActivity(intent);
                                     //stopSelf();
 
                                 }

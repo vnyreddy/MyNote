@@ -13,13 +13,21 @@ import com.vinay.wizdem.mynote.Interfaces.RequestContract;
 import com.vinay.wizdem.mynote.Presenters.NoteWidgetPresenter;
 import com.vinay.wizdem.mynote.R;
 
-public class NoteWidgetActivity extends AppCompatActivity implements RequestContract {
+public class NoteOverlayActivity extends AppCompatActivity implements RequestContract {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        //use this                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+
+        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+        layoutParams.dimAmount = 0.5f;
+        getWindow().setAttributes(layoutParams);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
+                WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+
         setContentView(R.layout.activity_floating_note);
 
         final EditText write_note = (EditText)findViewById(R.id.write_note);
@@ -41,7 +49,7 @@ public class NoteWidgetActivity extends AppCompatActivity implements RequestCont
                 String note = write_note.getText().toString();
                 if(!note.isEmpty()){
                     NoteWidgetPresenter presenter = new NoteWidgetPresenter(write_note.getText().toString());
-                    presenter.saveNoteRequest(NoteWidgetActivity.this);
+                    presenter.saveNoteRequest(NoteOverlayActivity.this);
                 }else Toast.makeText(getApplication(),"Empty note!!",Toast.LENGTH_SHORT).show();
             }
         });

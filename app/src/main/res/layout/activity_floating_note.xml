@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/transparent"
-    tools:context="com.vinay.wizdem.mynote.Activities.NoteWidgetActivity"
+    tools:context="com.vinay.wizdem.mynote.Activities.NoteOverlayActivity"
     tools:layout_editor_absoluteY="0dp"
     tools:layout_editor_absoluteX="0dp">
 
